@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>Projects</title>
+	<style type="text/css">
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			box-sizing: border-box;
+			background-image: url(i/10.jpeg);
+			background-repeat: no-repeat;
+			margin: 0;
+			padding: 0;
+			font-family: arial;
+		}
+		h1, h2{
+			text-align: center;
+			font-family: Luminari, fantasy;
+		}
+		h2{
+			font-size: 24px;
+		}
+		h2 a{
+			margin-left: 20px;
+			text-decoration: none;
+			color:#000;
+		}
+		.wrapper {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			background: transparent;
+			width: 800px;
+		}
+		.slider {
+			z-index: 9;
+			width: 800px;
+			height: 550px;
+			overflow: hidden;
+			margin: 0 0 7px;
+			position: relative;	
+		}
+		.slider ul,
+		.slider li {
+			list-style-type: none;
+		}
+		.slider ul {
+			width: 11000px; 
+		}
+		.slider ul li img{
+			height: 450px;
+			border: 2px solid orange;
+		}
+		.slider ul li {
+			list-style-type: none;
+			float: left;
+			width: 1000px;
+			height: 400px;
+		}
+		.slider .nav {
+			position: absolute;
+			left: 50px;
+			bottom: 3px; 
+		}
+		.slider .nav span {
+			opacity: 0.9;
+			background: #fff;
+			margin: 0 8px 0 0;
+			width: 20px;
+			height: 20px;
+			border-radius: 8px;
+			cursor: pointer;
+			overflow: hidden;
+			display: block;
+			float: left;
+			box-shadow: 1px 1px 4px #000;
+		}
+		.slider .nav span.on {
+			background: orange;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$(".slider").each(function ()
+			{
+				var obj = $(this);
+				$(obj).append("<div class='nav'></div>");
+
+				$(obj).find("li").each(function ()
+				{
+					$(obj).find(".nav").append("<span rel='"+$(this).index()+"'></span>");
+					$(this).addClass("slider"+$(this).index());
+				});
+
+				$(obj).find("span").first().addClass("on");
+			});
+		});
+
+	function sliderJS (obj, sl) // slider function
+	{
+		var ul = $(sl).find("ul");
+		var bl = $(sl).find("li.slider"+obj);
+		var step = $(bl).width();
+		$(ul).animate({marginLeft: "-"+step*obj}, 800);
+	}
+
+	$(document).on("click", ".slider .nav span", function() // slider click navigate
+	{
+		var sl = $(this).closest(".slider");
+		$(sl).find("span").removeClass("on");
+		$(this).addClass("on");
+		var obj = $(this).attr("rel");
+		sliderJS(obj, sl);
+		return false;
+	});
+	</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>Перелік проектів</h1>
+			<div class="slider">
+				<ul>
+					<li>
+						<img src="i/1.png" alt="" />
+						<h2>
+							Team 1
+							<a href="https://docs.google.com/presentation/d/1Fp7W1I-TqSkwVZ_8lE8a-4KCYJ3-fsbEzWbKW83Gmhc/edit?usp=share_link">Презентація</a> 
+							<a href="https://drive.google.com/file/d/16bgWYh1MCZ4SK6mljPli4YDah4LENKM8/view?usp=share_link">Трейлер до гри</a>
+						</h2>
+					</li>
+					<li>
+						<img src="i/2.png" alt="" />
+						<h2>
+							Team 2
+							<a href="https://docs.google.com/presentation/d/1ay5s8DA_B7J-fp9xajEF-G6Y9eNet9DGEQK7e2zppeI/edit?usp=share_link">Презентація</a> 
+							<a href="https://drive.google.com/file/d/1t9O3RHP56_eRCMWoA-RvcZ7mLsYe4zuL/view?usp=share_link">Трейлер до гри</a>
+						</h2>
+					</li>
+					<li>
+						<img src="i/3.png" alt="" />
+						<h2>
+							Team 3
+							<a href="https://drive.google.com/file/d/1t9O3RHP56_eRCMWoA-RvcZ7mLsYe4zuL/view?usp=share_link">Презентація</a> 
+							<a href="https://drive.google.com/file/d/14vSwVFZirFi6ZS7vymKPSkxJmXrokxp6/view?usp=share_link">Трейлер до гри</a>
+						</h2>
+					</li>
+					<li>
+						<img src="i/4a.png" alt="" />
+						<h2>
+							Team 4
+							<a href="https://docs.google.com/presentation/d/1fbwP-5lnHUogj9ZS9IGH3iOOuBdomx_v/edit?usp=share_link&ouid=112745255092046945974&rtpof=true&sd=true">Презентація</a> 
+							<a href="https://drive.google.com/file/d/1auj4u2fOBwz0dfclDCpetYBSTAYm0R0Q/view?usp=share_link">Трейлер до гри</a>
+						</h2>
+					</li>
+					<li>
+						<img src="i/5.png" alt="" />
+						<h2>
+							Team 5
+							<a href="https://docs.google.com/presentation/d/1qk1fWalnjhDLGZFDdzLYyf_2d7PuIiMhVc0yPrZdXOM/edit?usp=share_link">Презентація</a> 
+							<a href="https://drive.google.com/file/d/1UxTAe1BYWfA_xMRCgeQ3F7tHm-N1Ykjz/view?usp=share_link">Трейлер до гри</a>
+						</h2>
+					</li>
+					<li>
+						<img src="i/6.png" alt="" />
+						<h2>
+							Team 6
+							<a href="https://docs.google.com/presentation/d/1BnlSrpEKISwP4NLYEN5sU2rkpujjzktO/edit?usp=share_link&ouid=112745255092046945974&rtpof=true&sd=true">Презентація</a> 
+							<a href="https://drive.google.com/file/d/1WA_IxEmz64H_5aZEsSxHDN6UlNBZen08/view?usp=share_link">Трейлер до гри</a>
+						</h2>
+					</li>
+					<li>
+						<img src="i/7.png" alt="" />
+						<h2>
+							Team 7
+							<a href="https://docs.google.com/presentation/d/1-cIlmy8aPWyE-yseYYM2CO0Oy0OYqk-e6QJ-vTNEt78/edit?usp=share_link">Презентація</a> 
+							<a href="https://drive.google.com/file/d/1sN1R7uFh-ojLO6n3g8O69zCM6DO6tLb5/view?usp=share_link">Трейлер до гри</a>
+						</h2>
+					</li>
+					<li>
+						<img src="i/1.png" alt="" />
+						<h2>
+							Team 8
+							<a href="">Презентація</a> 
+							<a href="https://drive.google.com/file/d/12PbrchRhr_yGO3JUpLDlDb1kysQ9NJXB/view?usp=share_link">Трейлер до гри</a>
+						</h2>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
